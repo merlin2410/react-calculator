@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Field from "./Components/Field";
+import Keypad from "./Components/Keypad";
+import Result from "./Components/Result";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = ()=>{
+    const [num1, setNum1] = useState("");
+    const [num2, setNum2] = useState("");
+    const [result, setResult] = useState(null);
+    
+    return (
+        <div className="App">
+            <h1>React Calculator</h1>
+            <Field setNum={setNum1} placeholder="Num 1"/>
+            <Field setNum={setNum2} placeholder="Num 2" />
+            <Keypad num1={num1} num2={num2} setResult={setResult}/>
+            <Result result={result}/>
+        </div>
+    )
 }
 
 export default App;
+
